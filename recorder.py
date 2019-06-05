@@ -3,8 +3,10 @@
 import requests
 import psycopg2
 import time
-av = 00000000
-sec = 300
+import sys
+
+av = sys.argv[1]
+sec = int(sys.argv[2])
 pg_connect = psycopg2.connect(
     database="example", user="example", password="example", host="example", port="5432")
 view = 0

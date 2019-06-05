@@ -1,7 +1,9 @@
 # -*- coding:utf-8 -*-
 # 此文件用于新建table
 import psycopg2
-av = 00000000
+import sys
+
+av = sys.argv[1]
 pg_connect = psycopg2.connect(
     database="example", user="example", password="example", host="example", port="5432")
 sql = '''CREATE TABLE public.av{}(
