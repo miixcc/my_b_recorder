@@ -16,11 +16,12 @@ while True:
     if x['view'] > view:
         view = x['view']
         now_time = int(time.time())
-        print(x, now_time)
+        print("av{}, 播放数{}, 时间戳{}".format(x['aid'], x['view'], now_time))
         pg_connect.cursor().execute("INSERT INTO av{} VALUES({},{},{},{},{},{},{},{})".format(
             av, now_time, x['view'], x['danmaku'], x['reply'], x['favorite'], x['coin'], x['share'], x['like']))
         pg_connect.commit()
     else:
-        print("av{}的播放量没有变化，等待{}秒再次获取信息".format(av, sec))
+        print("av{}的播放数没有变化，等待{}秒再次获取信息".format(av, sec))
     time.sleep(sec)
 pg_connect.close()
+
